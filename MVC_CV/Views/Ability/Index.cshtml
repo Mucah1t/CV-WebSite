@@ -1,0 +1,104 @@
+﻿@using MVC_CV.Models.Entity
+@model List<Tbl_Ability>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@{
+    string sColor = ""; //we creatd new color value thanks to razer syntax to use it in the proportion section to make our web-page more dynamic
+}
+@{
+    string sLabelColor = "";
+}
+
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Abilities</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <a href="/Ability/AddAbility" class="btn btn-outline-success">Add New Ability</a>
+                                <br />
+                                <br />
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10px">#</th>
+                                            <th>Ability</th>
+                                            <th>Progress</th>
+                                            <th style="width: 40px">Level</th>
+                                            <th>Delete</th>
+                                            <th>Update</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            //we give certain colors to certain intervals //                    //ROW85---We want to go to delete operation with an "ID"
+                                            if (item.Proportion >= 0 && item.Proportion <= 50)
+                                            {
+                                                sColor = "progress-bar bg-danger";
+                                                sLabelColor = "badge bg-danger";
+                                            }
+                                            if (item.Proportion >= 51 && item.Proportion <= 70)
+                                            {
+                                                sColor = "progress-bar bg-warning";
+                                                sLabelColor = "badge bg-warning";
+
+                                            }
+                                            if (item.Proportion >= 71 && item.Proportion <= 84)
+                                            {
+                                                sColor = "progress-bar bg-primary";
+                                                sLabelColor = "badge bg-primary";
+
+                                            }
+                                            if (item.Proportion >= 84 && item.Proportion <= 100)
+                                            {
+                                                sColor = "progress-bar bg-success";
+                                                sLabelColor = "badge bg-success";
+
+                                            }
+
+                                            <tr>
+
+                                                <td>@item.ID</td>
+                                                <td>@item.Ability</td>
+                                                <td>
+                                                    <div class="progress progress-xs">
+
+                                                        <div class="@sColor" style="width: @item.Proportion%"></div>
+                                                    </div>
+                                                </td>
+                                                <td><span class="@sLabelColor">@item.Proportion%</span></td> 
+                                                <td> <a href="/Ability/DeleteAbility/@item.ID"  class="btn btn-outline-danger btn-sm"><i class="fas fa-trash"> </i> Delete</a></td> 
+                                                <td> <a href="/Ability/UpdateAbility/@item.ID" class=" btn btn-outline-info"><i class="fas fa-pencil-alt"> </i> Edit</a></td>
+                                            </tr>
+                                        }
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+</body>
+</html>
+
+

@@ -1,0 +1,30 @@
+﻿@model MVC_CV.Models.Entity.Tbl_Awards
+@{
+    ViewBag.Title = "UpdateAward";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<br />
+<h4> Edit
+    Award</h4>
+<br />
+
+<form method="post">
+    @Html.Label("Statement")
+    @Html.TextBoxFor(x => x.Statement, new { @class = "form-control" })
+   
+    <br />
+    @Html.Label("Date")
+    @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
+    <br />
+
+
+    <button class="btn btn-outline-primary  "> Update</button>
+    <a href="/Award/DeleteAward/@ViewBag.d" class="btn btn-outline-danger ">Delete</a> @*Viewbag was used to carry id*@
+
+</form>
+
+
+

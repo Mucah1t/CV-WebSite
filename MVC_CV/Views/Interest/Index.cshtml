@@ -1,0 +1,25 @@
+﻿@using MVC_CV.Models.Entity
+@model List<Tbl_Hobies>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2> Edit Interest</h2>
+<br />
+<form method="post">
+    @foreach (var item in Model)
+    {
+        <label>First Statement </label>
+<textarea rows="7" class="form-control" name="Statement1"> @item.Statement1</textarea>
+        <br />
+
+        <label>Second Statement </label>
+<textarea rows="7" class="form-control" name="Statement2"> @item.Statement2</textarea>//the raeason we have nameTag here is that SQL has to find exact area to replace values
+
+    }
+    <br />
+    <button class=" btn btn-outline-success"> Edit</button>
+</form>

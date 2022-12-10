@@ -1,0 +1,11 @@
+﻿@using MVC_CV.Models.Entity
+@model List<Tbl_Hobies>
+
+<div class="resume-section-content">
+    <h2 class="mb-5">Interests</h2>
+    @foreach (var item in Model)
+    {
+    <p>@item.Statement1</p>
+    <p class="mb-0">@item.Statement2</p>
+    }
+</div>

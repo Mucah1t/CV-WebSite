@@ -1,0 +1,32 @@
+﻿@model MVC_CV.Models.Entity.Tbl_Awards
+@{
+    ViewBag.Title = "AddAward";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+
+
+<br />
+<h4>
+    Add New
+    Award/Certificate
+</h4>
+<br />
+
+<form method="post">
+    @Html.Label("Statement")
+    @Html.TextBoxFor(x => x.Statement, new { @class = "form-control" })
+    @*@Html.ValidationMessageFor(x => x.Statement, "", new { @style = "color:red" })*@
+    <br />
+    @Html.Label("Date")
+    @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
+    <br />
+
+
+    <button class="btn btn-info"> Save</button>
+</form>
+
+

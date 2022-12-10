@@ -1,0 +1,24 @@
+﻿@model MVC_CV.Models.Entity.Tbl_Ability
+@{
+    ViewBag.Title = "UpdateAbility";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h4> Update the Existing Ability</h4>
+<br />
+
+<form method="post">
+    @Html.Label("ID")
+    @Html.TextBoxFor(x => x.ID, new { @class = "form-control" })
+    <br />
+    @Html.Label("Ability")
+    @Html.TextBoxFor(x => x.Ability, new { @class = "form-control" })
+    <br />
+    @Html.Label("Proportion")
+    @Html.TextBoxFor(x => x.Proportion, new { @class = "form-control" })
+    <br />
+
+    <button class="btn btn-info "> Update</button>
+</form>
+

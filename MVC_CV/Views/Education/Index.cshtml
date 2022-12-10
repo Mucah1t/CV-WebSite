@@ -1,0 +1,44 @@
+﻿@using MVC_CV.Models.Entity
+@model List<Tbl_Education> 
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<br />
+
+<h2> Education</h2>
+<table class=" table table-bordered">
+    <tr>
+        <th> ID</th>
+        <th> Title</th>
+        <th> Sub-Title </th>
+        <th> Sub-Title 2</th>
+        <th> GPA</th>
+        <th> Date</th>
+        <th> Delete</th>
+        <th> Update</th>
+
+    </tr>
+    @foreach (var item in Model) /// the reason we use foreach here is that we are getting list as outcome
+    {
+        <tr>
+            <td> @item.ID   </td>
+            <td> @item.Title   </td>
+            <td> @item.SubTitle1  </td>
+            <td> @item.SubTitle2   </td>
+            <td> @item.GPA   </td>
+            <td> @item.Date   </td>
+
+            <td> <a href="/Education/DeleteEducation/@item.ID" class="btn btn-outline-danger "><i class="fas fa-trash"> </i> Delete</a></td>
+            <td> <a href="/Education/UpdateEducation/@item.ID" class=" btn btn-outline-info"><i class="fas fa-pencil-alt"> </i> Edit</a></td>
+        </tr>
+    }
+</table>
+<a href="/Education/AddEducation" class="btn btn-outline-success ">Add New Experience</a>
+
+
+
